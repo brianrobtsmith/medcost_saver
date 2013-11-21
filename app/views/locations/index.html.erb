@@ -22,7 +22,7 @@
   <tbody>
     <% @locations.each do |location| %>
       <tr>
-        <td><%= location.company_id %></td>
+        <td><%= Company.find_by(:id => location.company_id).name %></td>
         <td><%= location.address1 %></td>
         <td><%= location.address2 %></td>
         <td><%= location.city %></td>

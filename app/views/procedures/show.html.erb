@@ -2,9 +2,17 @@
   <h1><%= @procedure.name %></h1>
 </div>
 
+<div>
+<h4>Find the best value</h4>
+</div>
+
 <dl class="dl-horizontal">
-  <dt>Name</dt>
-  <dd><%= @procedure.name %></dd>
+  <% @offering.each do |offering| %>
+   <dt>Price</dt>
+  <dd><%= offering.total_price %></dd>
+  <dt>Company</dt>
+  <dd><%= Company.find_by(:id => offering.company_id).name %></dd>
 
 
+  <% end %>
 </dl>

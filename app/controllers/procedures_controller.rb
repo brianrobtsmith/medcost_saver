@@ -6,6 +6,7 @@ class ProceduresController < ApplicationController
 
   def show
     @procedure = Procedure.find_by(id: params[:id])
+    @offering = Offering.where(procedure_id: params[:id])
   end
 
   def new
