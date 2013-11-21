@@ -21,8 +21,8 @@
   <tbody>
     <% @offerings.each do |offering| %>
       <tr>
-        <td><%= offering.procedure_id %></td>
-        <td><%= offering.company_id %></td>
+        <td><%= Procedure.find_by(:id => offering.procedure_id).name %></td>
+        <td><%= Company.find_by(:id => offering.company_id).name %></td>
         <td><%= offering.exam_price %></td>
         <td><%= offering.test_price %></td>
         <td><%= offering.total_price %></td>
