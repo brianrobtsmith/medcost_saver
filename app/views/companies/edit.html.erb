@@ -1,0 +1,12 @@
+<h1>Editing Company #<%= @company.id %></h1>
+
+<%= form_tag(company_url(@company), method: 'patch') do %>
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @company.name %>
+  </div>
+
+  <div>
+    <%= submit_tag "Update Company" %>
+  </div>
+<% end %>
