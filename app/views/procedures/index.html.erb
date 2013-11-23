@@ -4,20 +4,50 @@
 
 <p><%= link_to 'Add a New Procedure', new_procedure_url, class: 'btn btn-primary' %></p>
 
+
+<div>
+<label>What type of medical procedure are you looking for?
+<input list="pro" />
+ <% @procedures.each do |procedure| %>
+<datalist id="pro">
+  <option value="<%= procedure.name %>">
+</datalist>
+<% end %>
+</div>
+
+
+
+<div>
+<label>What type of medical procedure are you looking for?</label>
+<br>
+<input list="procedure" size="30" />
+<datalist id="procedure">
+  <option value="Cold">
+  <option value="Ear Wax Removal">
+  <option value="Urinary Tract Infection">
+  <option value="Pregnancy Test">
+  <option value="Tuberculosis Screening">
+  <option value="Allergies">
+</datalist>
+</div>
+
 <table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
+      <th>Category</th>
       <th></th>
       <th></th>
       <th></th>
     </tr>
   </thead>
 
+
   <tbody>
     <% @procedures.each do |procedure| %>
       <tr>
         <td><%= procedure.name %></td>
+        <td><%= procedure.category %></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, procedure_url(procedure), class: 'btn btn-primary' %></td>
         <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_procedure_url(procedure), class: 'btn btn-warning' %></td>
         <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, procedure_url(procedure), method: 'delete', data: { confirm: "Do you really want to delete this procedure?" }, class: 'btn btn-danger' %></td>

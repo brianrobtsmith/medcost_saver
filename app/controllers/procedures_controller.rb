@@ -15,6 +15,7 @@ class ProceduresController < ApplicationController
   def create
     @procedure = Procedure.new
     @procedure.name = params[:name]
+    @procedure.category = params[:category]
 
     if @procedure.save
       redirect_to procedures_url, notice: "Procedure created successfully."
@@ -30,6 +31,7 @@ class ProceduresController < ApplicationController
   def update
     @procedure = Procedure.find_by(id: params[:id])
     @procedure.name = params[:name]
+    @procedure.category = params[:category]
 
     if @procedure.save
       redirect_to procedures_url, notice: "Procedure updated successfully."

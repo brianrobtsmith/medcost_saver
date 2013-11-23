@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+gem 'rails3-jquery-autocomplete'
+
 gem 'starter_generators'
 
 gem 'turbolinks', '~> 1.3.1'

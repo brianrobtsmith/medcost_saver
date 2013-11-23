@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131121001419) do
+ActiveRecord::Schema.define(version: 20131122181833) do
 
   create_table "companies", force: true do |t|
     t.string "name"
@@ -32,10 +32,18 @@ ActiveRecord::Schema.define(version: 20131121001419) do
     t.float   "exam_price"
     t.float   "test_price"
     t.float   "total_price"
+    t.string  "notes",        default: ""
+  end
+
+  create_table "procedure_types", force: true do |t|
+    t.string   "Category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "procedures", force: true do |t|
     t.string "name"
+    t.string "category", default: "R"
   end
 
 end

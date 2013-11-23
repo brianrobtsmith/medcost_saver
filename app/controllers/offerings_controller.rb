@@ -18,6 +18,7 @@ class OfferingsController < ApplicationController
     @offering.exam_price = params[:exam_price]
     @offering.test_price = params[:test_price]
     @offering.total_price = params[:total_price]
+    @offering.notes = params[:notes]
 
     if @offering.save
       redirect_to offerings_url, notice: "Offering created successfully."
@@ -37,6 +38,7 @@ class OfferingsController < ApplicationController
     @offering.exam_price = params[:exam_price]
     @offering.test_price = params[:test_price]
     @offering.total_price = params[:total_price]
+    @offering.notes = params[:notes]
 
     if @offering.save
       redirect_to offerings_url, notice: "Offering updated successfully."
