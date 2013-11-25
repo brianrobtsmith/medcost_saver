@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131125213055) do
+ActiveRecord::Schema.define(version: 20131125215838) do
 
   create_table "categories", force: true do |t|
     t.string "name"
@@ -41,7 +41,8 @@ ActiveRecord::Schema.define(version: 20131125213055) do
 
   create_table "procedures", force: true do |t|
     t.string "name"
-    t.string "category", default: "R"
+    t.string "category",    default: "R"
+    t.string "category_id", default: ""
   end
 
 end

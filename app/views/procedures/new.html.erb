@@ -13,7 +13,7 @@
   <div class="form-group">
     <%= label_tag :category, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= select_tag :id, options_from_collection_for_select(Category.all, :id, :name), class: 'form-control' %>
+      <%= select_tag :category_id, options_from_collection_for_select(Category.all, :id, :name), class: 'form-control' %>
     </div>
   </div>
 
