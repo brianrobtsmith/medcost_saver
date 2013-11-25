@@ -4,32 +4,20 @@
 
 <p><%= link_to 'Add a New Procedure', new_procedure_url, class: 'btn btn-primary' %></p>
 
-
 <div>
-<label>What type of medical procedure are you looking for?
-<input list="pro" />
- <% @procedures.each do |procedure| %>
-<datalist id="pro">
-  <option value="<%= procedure.name %>">
-</datalist>
-<% end %>
+<form action="/procedures/search">
+  <label for="procedure_name">What type of medical procedure are you looking for?</label>
+  <input id="procedure_name" name="procedure_name" list="procedures" />
+  <datalist id="procedures">
+    <option value="Flu (Shot)">
+    <option value="Sports Physical">
+    <option value="Pink Eye">
+    <option value="Pneumonia vaccine">
+  </datalist>
+  <input type="submit" value="Find It!">
+</form>
 </div>
 
-
-
-<div>
-<label>What type of medical procedure are you looking for?</label>
-<br>
-<input list="procedure" size="30" />
-<datalist id="procedure">
-  <option value="Cold">
-  <option value="Ear Wax Removal">
-  <option value="Urinary Tract Infection">
-  <option value="Pregnancy Test">
-  <option value="Tuberculosis Screening">
-  <option value="Allergies">
-</datalist>
-</div>
 
 <table class="table table-hover">
   <thead>
@@ -44,7 +32,7 @@
 
 
   <tbody>
-    <% @procedures.each do |procedure| %>
+    <% @procedure.each do |procedure| %>
       <tr>
         <td><%= procedure.name %></td>
         <td><%= procedure.category %></td>

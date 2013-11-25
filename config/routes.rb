@@ -1,6 +1,9 @@
 MedcostSaver::Application.routes.draw do
   # Routes for the Location resource:
   root 'procedures#index'
+
+  get '/procedures/search' => 'procedures#search'
+
   # CREATE
   get '/locations/new', controller: 'locations', action: 'new', as: 'new_location'
   post '/locations', controller: 'locations', action: 'create', as: 'locations'
