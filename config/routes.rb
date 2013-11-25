@@ -1,4 +1,21 @@
 MedcostSaver::Application.routes.draw do
+  # Routes for the Category resource:
+  # CREATE
+  get '/categories/new', controller: 'categories', action: 'new', as: 'new_category'
+  post '/categories', controller: 'categories', action: 'create', as: 'categories'
+
+  # READ
+  get '/categories', controller: 'categories', action: 'index'
+  get '/categories/:id', controller: 'categories', action: 'show', as: 'category'
+
+  # UPDATE
+  get '/categories/:id/edit', controller: 'categories', action: 'edit', as: 'edit_category'
+  patch '/categories/:id', controller: 'categories', action: 'update'
+
+  # DELETE
+  delete '/categories/:id', controller: 'categories', action: 'destroy'
+  #------------------------------
+
   # Routes for the Location resource:
   root 'procedures#index'
 

@@ -6,13 +6,35 @@
 <h4>Find the best value</h4>
 </div>
 
-<dl class="dl-horizontal">
-  <% @offering.each do |offering| %>
-   <dt>Price</dt>
-  <dd><%= offering.total_price %></dd>
-  <dt>Company</dt>
-  <dd><%= Company.find_by(:id => offering.company_id).name %></dd>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Price</th>
+      <th>Company</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+<tbody>
+    <% @offering.each do |offering| %>
+      <tr>
+        <td><%= offering.total_price %></td>
+        <td><%= Company.find_by(id: offering.company_id).name %></td>
+        <td><%= Location.find_by(company_id: offering.company_id).address1 %></td>
+        <td><%= Location.find_by(company_id: offering.company_id).city %></td>
+        <td><%= Location.find_by(company_id: offering.company_id).state %></td>
+        <td><%= Location.find_by(company_id: offering.company_id).zip %></td>
 
 
-  <% end %>
-</dl>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

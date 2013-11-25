@@ -24,6 +24,7 @@ class ProceduresController < ApplicationController
   def show
     @procedure = Procedure.find_by(id: params[:id])
     @offering = Offering.where(procedure_id: params[:id])
+    # Find the company based off of the params[:id] and procedure_id
   end
 
   def new
