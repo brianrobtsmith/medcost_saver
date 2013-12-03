@@ -8,11 +8,10 @@
 <form action="/procedures/search">
   <label for="procedure_name">What type of medical procedure are you looking for?</label>
   <input id="procedure_name" name="procedure_name" list="procedures" />
+  <% @procedure.each do |show| %>
   <datalist id="procedures">
-    <option value="Flu (Shot)">
-    <option value="Sports Physical">
-    <option value="Pink Eye">
-    <option value="Pneumonia vaccine">
+    <option value="<%= show.name %>">
+  <% end %>
   </datalist>
   <input type="submit" value="Find It!">
 </form>

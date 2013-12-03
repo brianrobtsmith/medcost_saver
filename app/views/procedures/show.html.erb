@@ -54,11 +54,3 @@
   </thead>
 
 <tbody>
-
-   <% #@location.each do |location| %>
-   <tr>
-     <td><%= #Offering.find_by(company_id: location.company_id).total_price %></td>
-     <td><%= #Company.find_by(id: location.company_id).name %></td>
-     <td><%= #location.address1 %></td>
-     <td></td>
-    <% #end %>

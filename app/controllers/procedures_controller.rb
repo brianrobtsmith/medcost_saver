@@ -24,9 +24,11 @@ class ProceduresController < ApplicationController
   def show
     @procedure = Procedure.find_by(id: params[:id])
     @offering = Offering.where(procedure_id: @procedure)
+    #@offering.each do |trythis|
     #In the '@offering' variable, there are now three rows of offerings.
-    #offeringid = @offering.company_id
-    #@company = Company.where(id: offeringid)
+    #@company = Company.where(id: {trythis["company_id")})
+    #@company = Company.where(id: @offering{company_id:})
+    #@company = Company.where(id: @offering{#company_id})
     #My goal is the find the corresponding ID within each row of Offerings
     #offeringcompany = Offering.where(company_id: offeringid)
     #Once I have the proper Offering "ID", I can use it to find the
