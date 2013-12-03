@@ -1,3 +1,3 @@
 class Category < ActiveRecord::Base
- has_many :procedure
+  has_many :procedures
 end

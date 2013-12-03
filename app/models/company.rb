@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base
-  has_many :location
-  has_many :offering
-  has_many :procedure, :through => :offering
+  has_many :locations
+  has_many :offerings
+  has_many :procedures, :through => :offerings
 end
