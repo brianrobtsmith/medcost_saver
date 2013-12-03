@@ -15,26 +15,32 @@
       <th>City</th>
       <th>State</th>
       <th>Zip</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
 <tbody>
-    <% @offering.each do |offering| %>
+    <% @offerings.each do |offering| %>
       <tr>
-        <td><%= offering.total_price %></td>
-        <td><%= Company.find_by(id: offering.company_id).name %></td>
-        <td><%= Location.find_by(company_id: offering.company_id).address1 %></td>
-        <td><%= Location.find_by(company_id: offering.company_id).city %></td>
-        <td><%= Location.find_by(company_id: offering.company_id).state %></td>
-        <td><%= Location.find_by(company_id: offering.company_id).zip %></td>
-
-
+        <td ><%= offering.total_price %></td>
+        <% company = Company.find_by(id: offering.company_id) %>
+        <td><%= company.name %></td>
+        <% locations = Location.where(company_id: company.id) %>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
       </tr>
+      <% locations.each do |location| %>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td><%= location.address1 %></td>
+          <td><%= location.city %></td>
+          <td><%= location.state %></td>
+          <td><%= location.zip %></td>
+        </tr>
+      <% end %>
     <% end %>
-
   </tbody>
 </table>
 

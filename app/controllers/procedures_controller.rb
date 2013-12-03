@@ -23,7 +23,8 @@ class ProceduresController < ApplicationController
 
   def show
     @procedure = Procedure.find_by(id: params[:id])
-    @offering = Offering.where(procedure_id: @procedure)
+    @offerings = Offering.where(procedure_id: @procedure)
+
     #@offering.each do |trythis|
     #In the '@offering' variable, there are now three rows of offerings.
     #@company = Company.where(id: {trythis["company_id")})
