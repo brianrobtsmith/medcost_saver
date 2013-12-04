@@ -1,7 +1,7 @@
 class ProceduresController < ApplicationController
 
   def index
-    @procedure = Procedure.all
+    @procedures = Procedure.all
   end
 
   def search
@@ -24,17 +24,6 @@ class ProceduresController < ApplicationController
   def show
     @procedure = Procedure.find_by(id: params[:id])
 
-    #@offering.each do |trythis|
-    #In the '@offering' variable, there are now three rows of offerings.
-    #@company = Company.where(id: {trythis["company_id")})
-    #@company = Company.where(id: @offering{company_id:})
-    #@company = Company.where(id: @offering{#company_id})
-    #My goal is the find the corresponding ID within each row of Offerings
-    #offeringcompany = Offering.where(company_id: offeringid)
-    #Once I have the proper Offering "ID", I can use it to find the
-    #@company = Company.where(id: offeringcompany)
-    #@location = Location.where(company_id: @company)
-    # Find the location based off of the param[:id]
   end
 
   def new

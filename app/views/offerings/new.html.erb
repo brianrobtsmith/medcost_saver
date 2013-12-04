@@ -6,7 +6,7 @@
   <div class="form-group">
     <%= label_tag :procedure_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= select_tag :procedure_id, options_from_collection_for_select(Procedure.all, :id, :name), class: 'form-control'%>
+      <%= select_tag :procedure_id, options_from_collection_for_select(Procedure.all.order(:name), :id, :name), class: 'form-control'%>
 
     </div>
   </div>
@@ -14,7 +14,7 @@
   <div class="form-group">
     <%= label_tag :company_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= select_tag :company_id, options_from_collection_for_select(Company.all, :id, :name), class: 'form-control' %>
+      <%= select_tag :company_id, options_from_collection_for_select(Company.all.order(:name), :id, :name), class: 'form-control' %>
 
     </div>
   </div>

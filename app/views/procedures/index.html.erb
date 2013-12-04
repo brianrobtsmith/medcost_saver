@@ -8,9 +8,9 @@
 <form action="/procedures/search">
   <label for="procedure_name">What type of medical procedure are you looking for?</label>
   <input id="procedure_name" name="procedure_name" list="procedures" />
-  <% @procedure.each do |show| %>
   <datalist id="procedures">
-    <option value="<%= show.name %>">
+  <% @procedures.each do |procedure| %>
+    <option value="<%= procedure.name %>">
   <% end %>
   </datalist>
   <input type="submit" value="Find It!">
@@ -31,7 +31,7 @@
 
 
   <tbody>
-    <% @procedure.each do |procedure| %>
+    <% @procedures.each do |procedure| %>
       <tr>
         <td><%= procedure.name %></td>
         <td><%= Category.find_by(id: procedure.category_id).name %></td>

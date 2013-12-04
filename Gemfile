@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+gem 'devise'
+
 gem 'rails3-jquery-autocomplete'
 
 gem 'starter_generators'

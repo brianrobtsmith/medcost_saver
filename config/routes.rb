@@ -1,4 +1,5 @@
 MedcostSaver::Application.routes.draw do
+  devise_for :admins
   # Routes for the Category resource:
   # CREATE
   get '/categories/new', controller: 'categories', action: 'new', as: 'new_category'
