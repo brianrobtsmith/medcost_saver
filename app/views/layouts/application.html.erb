@@ -22,8 +22,46 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
+
+<% if admin_signed_in? %>
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to Rails.application.class.parent_name, root_url, :class => "navbar-brand" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Categories", categories_url %></li>
+        <li><%= link_to "Procedures", procedures_url %></li>
+        <li><%= link_to "Offerings", offerings_url %></li>
+        <li><%= link_to "Companies", companies_url %></li>
+        <li><%= link_to "Locations", locations_url %></li>
+        <% if admin_signed_in? %>
+        <li><%= link_to current_admin.email, edit_admin_registration_path%></li>
+        <li><%= link_to "Logout", destroy_admin_session_path, :method => :delete %></li>
+       <% else %>
+        <li><%= link_to "Sign up", new_admin_registration_path %></li>
+        <li><%= link_to "Login", new_admin_session_path %></li>
+       <% end %>
+        <li><a href="#">About</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
+
+
+<% else %>
+
+ <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -47,6 +85,9 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
+
+<% end %>
+
 
   <div class="container">
     <% if notice.present? %>

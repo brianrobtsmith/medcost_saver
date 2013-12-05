@@ -2,7 +2,9 @@
   <h1>Procedures</h1>
 </div>
 
+<% if admin_signed_in? %>
 <p><%= link_to 'Add a New Procedure', new_procedure_url, class: 'btn btn-primary' %></p>
+<% end %>
 
 <div>
 <form action="/procedures/search">
@@ -17,7 +19,6 @@
 </form>
 </div>
 
-
 <table class="table table-hover">
   <thead>
     <tr>
@@ -29,15 +30,19 @@
     </tr>
   </thead>
 
-
   <tbody>
     <% @procedures.each do |procedure| %>
       <tr>
         <td><%= procedure.name %></td>
         <td><%= Category.find_by(id: procedure.category_id).name %></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, procedure_url(procedure), class: 'btn btn-primary' %></td>
-        <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_procedure_url(procedure), class: 'btn btn-warning' %></td>
-        <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, procedure_url(procedure), method: 'delete', data: { confirm: "Do you really want to delete this procedure?" }, class: 'btn btn-danger' %></td>
+        <% if admin_signed_in? %>
+          <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_procedure_url(procedure), class: 'btn btn-warning' %></td>
+          <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, procedure_url(procedure), method: 'delete', data: { confirm: "Do you really want to delete this procedure?" }, class: 'btn btn-danger' %></td>
+        <% else %>
+          <td></td>
+          <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

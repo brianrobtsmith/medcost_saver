@@ -2,7 +2,10 @@
   <h1>Offerings</h1>
 </div>
 
+<% if admin_signed_in? %>
+
 <p><%= link_to 'Add a New Offering', new_offering_url, class: 'btn btn-primary' %></p>
+<% end %>
 
 <table class="table table-hover">
   <thead>
@@ -19,7 +22,7 @@
   </thead>
 
   <tbody>
-    <% @offerings.order('procedure_id').each do |offering| %>
+    <% @offerings.each do |offering| %>
       <tr>
         <td><%= Procedure.find_by(:id => offering.procedure_id).name %></td>
         <td><%= Procedure.find_by(:id => offering.procedure_id).category %> </td>
@@ -27,8 +30,13 @@
         <td><%= offering.total_price %></td>
         <td><%= offering.notes %></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, offering_url(offering), class: 'btn btn-primary' %></td>
+      <% if admin_signed_in? %>
         <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_offering_url(offering), class: 'btn btn-warning' %></td>
         <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, offering_url(offering), method: 'delete', data: { confirm: "Do you really want to delete this offering?" }, class: 'btn btn-danger' %></td>
+      <% else %>
+        <td></td>
+        <td></td>
+      <% end %>
       </tr>
     <% end %>
   </tbody>

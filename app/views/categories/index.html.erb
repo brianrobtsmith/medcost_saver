@@ -1,6 +1,10 @@
 <h1>Categories</h1>
 
+<% if admin_signed_in? %>
+
 <p><%= link_to 'Add a New Category', new_category_url %></p>
+
+<% end %>
 
 <table>
   <thead>
@@ -17,8 +21,13 @@
     <tr>
       <td><%= category.name %></td>
       <td><%= link_to 'Show', category_url(category) %></td>
+     <% if admin_signed_in? %>
       <td><%= link_to 'Edit', edit_category_url(category) %></td>
       <td><%= link_to 'Destroy', category_url(category), method: 'delete', data: { confirm: "Do you really want to delete this category?" } %></td>
+    <% else %>
+      <td></td>
+      <td></td>
+    <% end %>
     </tr>
   <% end %>
   </tbody>

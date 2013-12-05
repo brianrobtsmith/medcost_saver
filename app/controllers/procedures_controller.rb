@@ -1,7 +1,7 @@
 class ProceduresController < ApplicationController
 
   def index
-    @procedures = Procedure.all
+    @procedures = Procedure.all.order("name")
   end
 
   def search
