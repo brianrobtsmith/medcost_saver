@@ -24,9 +24,9 @@
   <tbody>
     <% @offerings.each do |offering| %>
       <tr>
-        <td><%= Procedure.find_by(:id => offering.procedure_id).name %></td>
-        <td><%= Procedure.find_by(:id => offering.procedure_id).category %> </td>
-        <td><%= Company.find_by(:id => offering.company_id).name %></td>
+        <td><%= offering.procedure.name %></td>
+        <td><%= offering.procedure.category.name %> </td>
+        <td><%= offering.company.name %> </td>
         <td><%= offering.total_price %></td>
         <td><%= offering.notes %></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, offering_url(offering), class: 'btn btn-primary' %></td>
