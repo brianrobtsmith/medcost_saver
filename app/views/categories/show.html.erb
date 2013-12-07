@@ -1,26 +1,7 @@
-<h1>Category #<%= @category.id %></h1>
-
-<dl>
-  <dt>Name</dt>
-  <dd><%= @category.name %></dd>
-
-</dl>
-
-<div class="page-header">
-  <h1>Procedures</h1>
-</div>
-
+<br>
+<br>
 <div>
-<form action="/procedures/search">
-  <label for="procedure_name">What type of medical procedure are you looking for?</label>
-  <input id="procedure_name" name="procedure_name" list="procedures" />
-  <datalist id="procedures">
-  <% @category.procedures.each do |procedure| %>
-    <option value="<%= procedure.name %>">
-  <% end %>
-  </datalist>
-  <input type="submit" value="Find It!">
-</form>
+<button type="button" class="btn btn-primary btn-block" disabled="disabled"><h3><%= @category.name %></h3></button>
 </div>
 
 
@@ -28,10 +9,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Category</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -40,7 +17,6 @@
     <% @category.procedures.each do |procedure| %>
       <tr>
         <td><%= procedure.name %></td>
-        <td><%= @category.name %></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, procedure_url(procedure), class: 'btn btn-primary' %></td>
         <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_procedure_url(procedure), class: 'btn btn-warning' %></td>
         <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, procedure_url(procedure), method: 'delete', data: { confirm: "Do you really want to delete this procedure?" }, class: 'btn btn-danger' %></td>

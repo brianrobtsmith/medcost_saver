@@ -20,10 +20,10 @@
   <% @categories.each do |category| %>
     <tr>
       <td><%= category.name %></td>
-      <td><%= link_to 'Show', category_url(category) %></td>
+      <td><%= link_to 'Show', category_url(category), class: 'btn btn-primary' %></td>
      <% if admin_signed_in? %>
-      <td><%= link_to 'Edit', edit_category_url(category) %></td>
-      <td><%= link_to 'Destroy', category_url(category), method: 'delete', data: { confirm: "Do you really want to delete this category?" } %></td>
+      <td><%= link_to 'Edit', edit_category_url(category), class: 'btn btn-warning' %></td>
+      <td><%= link_to 'Destroy', category_url(category), class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this category?" } %></td>
     <% else %>
       <td></td>
       <td></td>

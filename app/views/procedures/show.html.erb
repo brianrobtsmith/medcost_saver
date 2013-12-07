@@ -19,7 +19,7 @@
   </thead>
 
 <tbody>
-    <% @procedure.offerings.each do |offering| %>
+    <% @procedure.offerings.order(:total_price).each do |offering| %>
       <% offering.locations.each do |location| %>
         <tr>
           <td><%= offering.total_price %></td>

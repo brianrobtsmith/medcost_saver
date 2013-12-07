@@ -50,31 +50,29 @@
 
 <!-- I would like to list the procedures by category -->
 
+
+
 <table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Category</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
+
+<div>
+<button type="button" class="btn btn-primary btn-block" disabled="disabled"><h3>Minor Illnesses</h3></button>
+</div>
 
   <tbody>
     <% @procedures.each do |procedure| %>
       <tr>
         <td><%= procedure.name %></td>
-        <td><%= procedure.category.name %> </td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, procedure_url(procedure), class: 'btn btn-primary' %></td>
-        <% if admin_signed_in? %>
-          <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_procedure_url(procedure), class: 'btn btn-warning' %></td>
-          <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, procedure_url(procedure), method: 'delete', data: { confirm: "Do you really want to delete this procedure?" }, class: 'btn btn-danger' %></td>
-        <% else %>
-          <td></td>
-          <td></td>
-        <% end %>
+        <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_procedure_url(procedure), class: 'btn btn-warning' %></td>
+        <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, procedure_url(procedure), method: 'delete', data: { confirm: "Do you really want to delete this procedure?" }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
