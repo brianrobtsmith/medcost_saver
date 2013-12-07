@@ -34,7 +34,7 @@
     <% @procedures.each do |procedure| %>
       <tr>
         <td><%= procedure.name %></td>
-        <td><%= Category.find_by(id: procedure.category_id).name %></td>
+       <!-- <td><#%= procedure.category.name %> </td> -->
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, procedure_url(procedure), class: 'btn btn-primary' %></td>
         <% if admin_signed_in? %>
           <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_procedure_url(procedure), class: 'btn btn-warning' %></td>
