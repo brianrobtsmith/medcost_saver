@@ -10,6 +10,7 @@
   <thead>
     <tr>
       <th>Price</th>
+      <th>Note</th>
       <th>Company</th>
       <th>Address</th>
       <th>City</th>
@@ -23,6 +24,7 @@
       <% offering.locations.each do |location| %>
         <tr>
           <td><%= offering.total_price %></td>
+          <td><%= offering.notes %></td>
           <td><%= offering.company.name %></td>
           <td><%= location.address1 %></td>
           <td><%= location.city %></td>
