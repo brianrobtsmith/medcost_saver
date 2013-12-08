@@ -1,4 +1,4 @@
-<h1>Categories</h1>
+<h1>Procedure Categories</h1>
 
 <% if admin_signed_in? %>
 
@@ -17,10 +17,10 @@
   </thead>
 
   <tbody>
-  <% @categories.each do |category| %>
+  <% @categories.order(:name).each do |category| %>
     <tr>
       <td><%= category.name %></td>
-      <td><%= link_to 'Show', category_url(category), class: 'btn btn-primary' %></td>
+      <td><%= link_to 'Show Procedures', category_url(category), class: 'btn btn-primary' %></td>
      <% if admin_signed_in? %>
       <td><%= link_to 'Edit', edit_category_url(category), class: 'btn btn-warning' %></td>
       <td><%= link_to 'Destroy', category_url(category), class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this category?" } %></td>

@@ -14,12 +14,14 @@
 
 
   <tbody>
-    <% @category.procedures.each do |procedure| %>
+    <% @category.procedures.order(:name).each do |procedure| %>
       <tr>
         <td><%= procedure.name %></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, procedure_url(procedure), class: 'btn btn-primary' %></td>
+        <% if admin_signed_in? %>
         <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_procedure_url(procedure), class: 'btn btn-warning' %></td>
         <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, procedure_url(procedure), method: 'delete', data: { confirm: "Do you really want to delete this procedure?" }, class: 'btn btn-danger' %></td>
+         <% end %>
       </tr>
     <% end %>
   </tbody>

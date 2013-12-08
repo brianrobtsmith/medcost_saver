@@ -1,7 +1,27 @@
-<h1>Company #<%= @company.id %></h1>
+<div>
+<button type="button" class="btn btn-primary btn-block" disabled="disabled"><h3><%= @company.name %></h3></button>
+</div>
 
-<dl>
-  <dt>Name</dt>
-  <dd><%= @company.name %></dd>
 
-</dl>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Procedure</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @company.procedures.order(:name).each do |procedure| %>
+      <tr>
+        <td><%= procedure.name %></td>
+        <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, procedure_url(procedure), class: 'btn btn-primary' %></td>
+        <% if admin_signed_in? %>
+        <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_procedure_url(procedure), class: 'btn btn-warning' %></td>
+        <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, procedure_url(procedure), method: 'delete', data: { confirm: "Do you really want to delete this procedure?" }, class: 'btn btn-danger' %></td>
+         <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
