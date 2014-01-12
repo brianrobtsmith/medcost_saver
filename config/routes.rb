@@ -1,4 +1,5 @@
 MedcostSaver::Application.routes.draw do
+  devise_for :providers
   devise_for :admins
   # Routes for the Category resource:
   # CREATE

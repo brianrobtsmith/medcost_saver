@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131204205628) do
+ActiveRecord::Schema.define(version: 20140112130614) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -62,5 +62,23 @@ ActiveRecord::Schema.define(version: 20131204205628) do
     t.string "category",    default: "R"
     t.string "category_id", default: ""
   end
+
+  create_table "providers", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "providers", ["email"], name: "index_providers_on_email", unique: true
+  add_index "providers", ["reset_password_token"], name: "index_providers_on_reset_password_token", unique: true
 
 end
